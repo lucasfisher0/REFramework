@@ -390,6 +390,7 @@ private:
     static std::string binding_vive;
     static std::string bindings_vive_controller;
     static std::string bindings_knuckles;
+    static std::string bindings_holographic_controller;
 
     const std::unordered_map<std::string, std::string> m_binding_files {
         { "actions.json", actions_json },
@@ -397,7 +398,8 @@ private:
         { "bindings_oculus_touch.json", bindings_oculus_touch_json },
         { "binding_vive.json", binding_vive },
         { "bindings_vive_controller.json", bindings_vive_controller },
-        { "bindings_knuckles.json", bindings_knuckles }
+        { "bindings_knuckles.json", bindings_knuckles },
+        { "binding_holographic_controller.json", bindings_holographic_controller }
     };
 
     const ModKey::Ptr m_set_standing_key{ ModKey::create(generate_name("SetStandingOriginKey")) };

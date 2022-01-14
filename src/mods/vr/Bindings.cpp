@@ -136,6 +136,10 @@ std::string VR::actions_json = R"(
     {
       "controller_type": "rift",
       "binding_url": "binding_rift.json"
+    },
+    {
+      "controller_type": "holographic_controller",
+      "binding_url": "binding_holographic_controller.json"
     }
   ],
   "localization": []
@@ -827,4 +831,228 @@ std::string VR::bindings_knuckles = R"(
    "name" : "knuckles_default",
    "options" : {},
    "simulated_actions" : []
+})";
+
+std::string VR::bindings_holographic_controller = R"(
+{
+    "alias_info" : {},
+    "bindings" : {
+        "/actions/default" : {
+            "chords": [],
+            "haptics" : [
+                {
+                "output" : "/actions/default/out/left_haptic",
+                "path" : "/user/hand/left/output/haptic"
+                },
+                {
+                "output" : "/actions/default/out/right_haptic",
+                "path" : "/user/hand/right/output/haptic"
+                }
+            ],
+            "poses" : [
+                {
+                "output" : "/actions/default/in/pose",
+                "path" : "/user/hand/left/pose/raw"
+                },
+                {
+                "output" : "/actions/default/in/pose",
+                "path" : "/user/hand/right/pose/raw"
+                }
+            ],
+            "skeleton" : [
+                {
+                "output" : "/actions/default/in/skeletonlefthand",
+                "path" : "/user/hand/left/input/skeleton/left"
+                },
+                {
+                "output" : "/actions/default/in/skeletonrighthand",
+                "path" : "/user/hand/right/input/skeleton/right"
+                }
+            ],
+            "sources" : [
+                {
+                "inputs" : {
+                    "pull" : {
+                        "output" : "/actions/default/in/squeeze"
+                    }
+                },
+                "mode" : "trigger",
+                "path" : "/user/hand/left/input/grip"
+                },
+                {
+                "inputs" : {
+                    "pull" : {
+                        "output" : "/actions/default/in/squeeze"
+                    }
+                },
+                "mode" : "trigger",
+                "path" : "/user/hand/right/input/grip"
+                },
+                {
+                "inputs" : {
+                    "touch": {
+                        "output": "/actions/default/in/WeaponDial_Start"
+                    },
+                    "east" : {
+                        "output" : "/actions/default/in/DPad_Right"
+                    },
+                    "north" : {
+                        "output" : "/actions/default/in/DPad_Up"
+                    },
+                    "south" : {
+                        "output" : "/actions/default/in/DPad_Down"
+                    },
+                    "west" : {
+                        "output" : "/actions/default/in/DPad_Left"
+                    }
+                },
+                "mode" : "dpad",
+                "parameters": {
+                    "sub_mode": "touch"
+                },
+                "path" : "/user/hand/left/input/trackpad"
+                },
+                {
+                "inputs" : {
+                    "center" : {
+                        "output" : "/actions/default/in/teleport"
+                    },
+                    "east" : {
+                        "output" : "/actions/default/in/bbutton"
+                    },
+                    "north" : {
+                        "output" : "/actions/default/in/teleport"
+                    },
+                    "south" : {
+                        "output" : "/actions/default/in/abutton"
+                    },
+                    "west" : {
+                        "output" : "/actions/default/in/weapondial_start"
+                    }
+                },
+                "mode" : "dpad",
+                "parameters" : {
+                    "sub_mode" : "click"
+                },
+                "path" : "/user/hand/right/input/trackpad"
+                },
+                {
+                "inputs" : {
+                    "click" : {
+                        "output" : "/actions/default/in/re2_quickturn"
+                    }
+                },
+                "mode" : "button",
+                "path" : "/user/hand/left/input/grip"
+                },
+                {
+                "inputs" : {
+                    "click" : {
+                        "output" : "/actions/default/in/grip"
+                    }
+                },
+                "mode" : "button",
+                "path" : "/user/hand/right/input/grip"
+                },
+                {
+                "inputs" : {
+                    "click" : {
+                        "output" : "/actions/default/in/re2_reset_view"
+                    },
+                    "long": {
+                        "output": "/actions/default/in/RE2_Change_Ammo"
+                    }
+                },
+                "mode" : "button",
+                "path" : "/user/hand/left/input/application_menu"
+                },
+                {
+                "inputs" : {
+                    "click" : {
+                        "output" : "/actions/default/in/re2_firstperson_toggle"
+                    },
+                    "long" : {
+                        "output" : "/actions/default/in/systembutton"
+                    }
+                },
+                "mode" : "button",
+                "path" : "/user/hand/right/input/application_menu"
+                },
+                {
+                "inputs" : {
+                    "click" : {
+                        "output" : "/actions/default/in/re2_firstperson_toggle"
+                    },
+                    "position" : {
+                        "output" : "/actions/default/in/joystick"
+                    }
+                },
+                "mode" : "joystick",
+                "parameters" : {
+                    "deadzone_pct" : "20"
+                },
+                "path" : "/user/hand/left/input/joystick"
+                },
+                {
+                "inputs" : {
+                    "click" : {
+                        "output" : "/actions/default/in/re2_firstperson_toggle"
+                    },
+                    "position" : {
+                        "output" : "/actions/default/in/joystick"
+                    }
+                },
+                "mode" : "joystick",
+                "parameters" : {
+                    "deadzone_pct" : "20"
+                },
+                "path" : "/user/hand/right/input/joystick"
+                },
+                {
+                "inputs" : {
+                    "east" : {
+                        "output" : "/actions/default/in/dpad_right"
+                    },
+                    "north" : {
+                        "output" : "/actions/default/in/dpad_up"
+                    },
+                    "south" : {
+                        "output" : "/actions/default/in/dpad_down"
+                    },
+                    "west" : {
+                        "output" : "/actions/default/in/dpad_left"
+                    }
+                },
+                "mode" : "dpad",
+                "parameters" : {
+                    "sub_mode" : "click"
+                },
+                "path" : "/user/hand/left/input/trackpad"
+                },
+                {
+                "inputs" : {
+                    "click" : {
+                        "output" : "/actions/default/in/trigger"
+                    }
+                },
+                "mode" : "button",
+                "path" : "/user/hand/right/input/trigger"
+                },
+                {
+                "inputs" : {
+                    "click" : {
+                        "output" : "/actions/default/in/headsetonhead"
+                    }
+                },
+                "mode" : "button",
+                "path" : "/user/head/proximity"
+                }
+            ]
+        }
+    },
+    "controller_type" : "holographic_controller",
+    "description" : "d",
+    "name" : "holographic_controller_default",
+    "options" : {},
+    "simulated_actions" : []
 })";

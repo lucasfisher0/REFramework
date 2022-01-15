@@ -54,6 +54,10 @@ std::string VR::actions_json = R"(
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/Inventory",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/in/SystemButton",
       "type": "boolean"
     },
@@ -103,6 +107,18 @@ std::string VR::actions_json = R"(
     },
     {
       "name": "/actions/default/in/RE2_Change_Ammo",
+      "type": "boolean" 
+    },
+    {
+      "name": "/actions/default/in/StartMenu",
+      "type": "boolean" 
+    },
+    {
+      "name": "/actions/default/in/OpenMap",
+      "type": "boolean" 
+    },
+    {
+      "name": "/actions/default/in/Interact",
       "type": "boolean" 
     },
     {

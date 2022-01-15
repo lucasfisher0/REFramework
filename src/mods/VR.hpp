@@ -276,8 +276,8 @@ private:
     vr::VRActiveActionSet_t m_active_action_set{};
 
     // Action handles
-    vr::VRActionHandle_t m_action_trigger{ };
-    vr::VRActionHandle_t m_action_grip{ };
+    vr::VRActionHandle_t m_action_trigger{};
+    vr::VRActionHandle_t m_action_grip{};
     vr::VRActionHandle_t m_action_joystick{};
     vr::VRActionHandle_t m_action_joystick_click{};
     vr::VRActionHandle_t m_action_a_button{};
@@ -294,6 +294,11 @@ private:
     vr::VRActionHandle_t m_action_re2_reset_view{};
     vr::VRActionHandle_t m_action_re2_change_ammo{};
 
+    vr::VRActionHandle_t m_action_inventory{};
+    vr::VRActionHandle_t m_action_startmenu{};
+    vr::VRActionHandle_t m_action_openmap{};
+    vr::VRActionHandle_t m_action_interact{};
+
     bool m_was_firstperson_toggle_down{false};
 
     std::unordered_map<std::string, std::reference_wrapper<vr::VRActionHandle_t>> m_action_handles {
@@ -302,6 +307,7 @@ private:
         { "/actions/default/in/Joystick", m_action_joystick },
         { "/actions/default/in/JoystickClick", m_action_joystick_click },
         { "/actions/default/in/AButton", m_action_a_button },
+        { "/actions/default/in/Inventory", m_action_inventory },
         { "/actions/default/in/BButton", m_action_b_button },
         { "/actions/default/in/DPad_Up", m_action_dpad_up },
         { "/actions/default/in/DPad_Right", m_action_dpad_right },
@@ -314,6 +320,10 @@ private:
         { "/actions/default/in/RE2_FirstPerson_Toggle", m_action_re2_firstperson_toggle },
         { "/actions/default/in/RE2_Reset_View", m_action_re2_reset_view },
         { "/actions/default/in/RE2_Change_Ammo", m_action_re2_change_ammo },
+        { "/actions/default/in/StartMenu", m_action_startmenu },
+        { "/actions/default/in/OpenMap", m_action_openmap },
+        { "/actions/default/in/Interact", m_action_interact },
+    };
     };
 
     // Input sources

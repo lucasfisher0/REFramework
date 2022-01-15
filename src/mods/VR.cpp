@@ -2515,6 +2515,12 @@ void VR::openvr_input_to_re2_re3(REManagedObject* input_system) {
     const auto is_left_system_button_down = is_action_active(m_action_system_button, m_left_joystick);
     const auto is_right_system_button_down = is_action_active(m_action_system_button, m_right_joystick);
 
+    const auto is_inventory_down = is_action_active(m_action_inventory, m_left_joystick) || is_action_active(m_action_inventory, m_right_joystick);
+    const auto is_startmenu_down = is_action_active(m_action_startmenu, m_left_joystick) || is_action_active(m_action_startmenu, m_right_joystick);
+    const auto is_map_down = is_action_active(m_action_openmap, m_left_joystick) || is_action_active(m_action_openmap, m_right_joystick);
+    const auto is_interact_down = is_action_active(m_action_interact, m_left_joystick) || is_action_active(m_action_interact, m_right_joystick);
+
+
 #if defined(RE2) || defined(RE3)
     const auto is_firstperson_toggle_down = is_action_active(m_action_re2_firstperson_toggle, m_left_joystick) || is_action_active(m_action_re2_firstperson_toggle, m_right_joystick);
 
@@ -2613,17 +2619,16 @@ void VR::openvr_input_to_re2_re3(REManagedObject* input_system) {
     set_button_state(app::ropeway::InputDefine::Kind::RESET_CAMERA, is_reset_view_down);
 
     // Left B: Inventory, PRESS_START
-    set_button_state(app::ropeway::InputDefine::Kind::INVENTORY, is_left_b_button_down);
-    set_button_state(app::ropeway::InputDefine::Kind::PRESS_START, is_left_b_button_down);
+    set_button_state(app::ropeway::InputDefine::Kind::INVENTORY, is_inventory_down);
+    set_button_state(app::ropeway::InputDefine::Kind::PRESS_START, is_startmenu_down);
 
     // Left A: QUICK_TURN, PRESS_START, CANCEL, DIALOG_CANCEL
     set_button_state(app::ropeway::InputDefine::Kind::QUICK_TURN, is_quickturn_down); // unique, unbound by default as it causes issues
-    set_button_state(app::ropeway::InputDefine::Kind::PRESS_START, is_left_a_button_down);
     set_button_state(app::ropeway::InputDefine::Kind::CANCEL, is_left_a_button_down);
     set_button_state(app::ropeway::InputDefine::Kind::DIALOG_CANCEL, is_left_a_button_down);
     
     // Right A: Action, ITEM, PRESS_START, DECIDE, DIALOG_DECIDE, (1 << 51)
-    set_button_state(app::ropeway::InputDefine::Kind::ACTION, is_right_a_button_down);
+    set_button_state(app::ropeway::InputDefine::Kind::ACTION, is_interact_down);
     set_button_state(app::ropeway::InputDefine::Kind::ITEM, is_right_a_button_down);
     set_button_state(app::ropeway::InputDefine::Kind::PRESS_START, is_right_a_button_down);
     set_button_state(app::ropeway::InputDefine::Kind::DECIDE, is_right_a_button_down);
@@ -2642,6 +2647,8 @@ void VR::openvr_input_to_re2_re3(REManagedObject* input_system) {
     set_button_state(app::ropeway::InputDefine::Kind::UI_EXCHANGE, is_right_b_button_down);
     set_button_state(app::ropeway::InputDefine::Kind::UI_RESET, is_right_b_button_down);
     set_button_state((app::ropeway::InputDefine::Kind)((uint64_t)1 << 52), is_right_b_button_down);
+
+    set_button_state(app::ropeway::InputDefine::Kind::MINIMAP, is_map_down);
 
     const auto left_axis = get_left_stick_axis();
     const auto right_axis = get_right_stick_axis();

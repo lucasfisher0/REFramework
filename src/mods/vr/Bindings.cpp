@@ -975,6 +975,18 @@ std::string VR::bindings_holographic_controller = R"(
           }
         },
         {
+          "path": "/user/hand/right/input/trackpad",
+          "mode": "dpad",
+          "parameters": {
+            "sub_mode": "click"
+          },
+          "inputs": {
+            "south": {
+              "output": "/actions/default/in/re3_dodge"
+            }
+          }
+        },
+        {
           "path": "/user/hand/right/input/trigger",
           "mode": "trigger",
           "inputs": {

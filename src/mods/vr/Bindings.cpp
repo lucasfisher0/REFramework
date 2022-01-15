@@ -1178,7 +1178,7 @@ std::string VR::bindings_holographic_controller = R"(
   },
   "category": "steamvr_input",
   "controller_type": "holographic_controller",
-  "description": "WMR Binding L-Grip-hold=(run) L-Pad up=(inventory)  L-pad down=(back) L=(Tripper pull up knife) R-pad-up=Reload. Weapon wheel: Up on Right hand touchpad (hold) then move left thumbstick to select weapon",
+  "description": "Shamelessly taken from Rombodawg!",
   "name": "Rombodawg RE2 VR mod Bindings 4.0",
   "options": {},
   "simulated_actions": []

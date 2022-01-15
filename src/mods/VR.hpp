@@ -324,7 +324,6 @@ private:
         { "/actions/default/in/OpenMap", m_action_openmap },
         { "/actions/default/in/Interact", m_action_interact },
     };
-    };
 
     // Input sources
     vr::VRInputValueHandle_t m_left_joystick{};
